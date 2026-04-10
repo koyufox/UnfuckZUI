@@ -26,7 +26,7 @@ public class AllowDisableDolbyAtmos {
                         XposedHelpers.callMethod(pref, "setSummary", (Object)null);
                     }
                 });
-            } else if (Build.VERSION.SDK_INT == 35) {
+            } else if (Build.VERSION.SDK_INT == 35 || Build.VERSION.SDK_INT == 36) {
                 XposedHelpers.findAndHookMethod("com.lenovo.settings.sound.dolby.DolbyAtmosUtils", lpparam.classLoader, "isHeadsetConnected", android.content.Context.class, XC_MethodReplacement.returnConstant(Boolean.TRUE));
                 XposedHelpers.findAndHookMethod("com.lenovo.settings.sound.dolby.DolbySwitchPreferenceController", lpparam.classLoader, "updateState", "androidx.preference.Preference", new XC_MethodHook() {
                     @Override
